@@ -1,6 +1,7 @@
 package models;
 
 import org.sql2o.Connection;
+
 import java.util.Objects;
 
 public abstract class Wildlife {
