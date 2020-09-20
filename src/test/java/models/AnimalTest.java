@@ -13,7 +13,7 @@ public class AnimalTest {
     @Test
     public void animal_instantiateCorrectly_true() {
         Animal testAnimal = setUpAnimal();
-        assertTrue(testAnimal != null);
+        assertTrue(testAnimal instanceof Animal);
     }
 
     @Test
