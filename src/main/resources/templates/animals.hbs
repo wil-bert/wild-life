@@ -1,0 +1,55 @@
+{{#partial "content"}}
+    <ul class="nav justify-content-end pt-4">
+        <li class="nav-item">
+            <a class="nav-link active" href="/">HOME</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/wildlife/new">TRACK ANIMAL</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/all-animals">ALL ANIMALS</a>
+        </li>
+        <li class="nav-item pr-4">
+            <a class="nav-link" href="/sightings">ALL SIGHTINGS</a>
+        </li>
+    </ul>
+    {{#if animals}}
+        <h2 class="text-center">Common animals</h2>
+        <div class="container">
+            <div class="row">
+                {{#each animals}}
+                    <div class="col-md-4">
+                        <div class="card p-4 mt-2">
+                            <h3>Animal species: {{name}}</h3>
+                            <p>Type: {{type}}</p>
+                            <p>{{location}}</p>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+        <hr class="mt-4 mb-4">
+    {{else}}
+        <h1 class="text-center">No animal to track.</h1>
+    {{/if}}
+    {{#if endangeredAnimals}}
+        <h2 class="text-center" style="color: red">Endangered animals</h2>
+        <div class="container">
+            <div class="row">
+                {{#each endangeredAnimals}}
+                    <div class="col-md-4">
+                        <div class="card p-4 mt-2">
+                            <h3>Animal species: {{name}}</h3>
+                            <p>Type: {{type}}</p>
+                            <p>Age: {{age}}</p>
+                            <p>Health status: {{health}}</p>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    {{else}}
+        <h2>No endangered animal at the moment</h2>
+    {{/if}}
+{{/partial}}
+{{>layout.hbs}}
