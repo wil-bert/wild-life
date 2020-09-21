@@ -1,5 +1,3 @@
-import static spark.Spark.*;
-
 import models.Animal;
 import models.Endangered;
 import models.Sightings;
@@ -9,6 +7,8 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static spark.Spark.*;
 
 public class App {
     public static void main(String[] args) {
@@ -59,16 +59,16 @@ public class App {
 
         get("all-animals", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            List<Animal>animals = Animal.all();
+            List<Animal> animals = Animal.all();
             List<Endangered> endangered = Endangered.all();
             List<Sightings> sightings = Sightings.all();
             model.put("sightings", sightings);
             model.put("animals", animals);
             model.put("endangered", endangered);
             return new ModelAndView(model, "all-animals.hbs");
-        }, new HandlebarsTemplateEngine() );
+        }, new HandlebarsTemplateEngine());
 
-        get("/sightings",(request, response) -> {
+        get("/sightings", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Sightings> sightings = Sightings.all();
             model.put("sightings", sightings);

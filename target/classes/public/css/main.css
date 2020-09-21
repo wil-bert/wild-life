@@ -1,0 +1,12 @@
+section{
+background-image: url(/images/moose.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+height: 100vh;
+}
+
+@media only screen and (max-width: 500px){
+    .tracker-form{
+        width: 90%;
+    }
+}

@@ -8,9 +8,10 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 
-class DB {
-    static Sql2o sql2o;
-    private static Logger logger = LoggerFactory.getLogger(DB.class);
+public class DB {
+    public static URI dbUri;
+    public static Sql2o sql2o;
+    static Logger logger = LoggerFactory.getLogger(DB.class);
 
     static {
         try {

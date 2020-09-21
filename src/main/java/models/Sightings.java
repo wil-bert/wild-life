@@ -3,7 +3,6 @@ package models;
 import org.sql2o.Connection;
 
 import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,6 +18,14 @@ public class Sightings {
         this.location = location;
         this.ranger_name = ranger_name;
         this.wildlife_id = wildlife_id;
+    }
+
+    public static List<Sightings> all() {
+        String querySightings = "SELECT * FROM sightings";
+        try (Connection con = DB.sql2o.open()) {
+            return con.createQuery(querySightings)
+                    .executeAndFetch(Sightings.class);
+        }
     }
 
     public int getId() {
@@ -37,27 +44,21 @@ public class Sightings {
         return wildlife_id;
     }
 
-    public void save(){
-        try(Connection con = DB.sql2o.open()){
+    public void save() {
+        try (Connection con = DB.sql2o.open()) {
             String sql = "INSERT INTO sightings(location, ranger_name, wildlife_id, time) VALUES(:location,:ranger_name,:wildlife_id, now())";
-            this.id =(int) con.createQuery(sql,true)
-                    .addParameter("location",this.location)
-                    .addParameter("ranger_name",this.ranger_name)
+            this.id = (int) con.createQuery(sql, true)
+                    .addParameter("location", this.location)
+                    .addParameter("ranger_name", this.ranger_name)
                     .addParameter("wildlife_id", this.wildlife_id)
                     .executeUpdate()
                     .getKey();
         }
     }
 
-    public static List<Sightings> all(){
-        String querySightings = "SELECT * FROM sightings";
-        try (Connection con =DB.sql2o.open()){
-            return con.createQuery(querySightings)
-                    .executeAndFetch(Sightings.class);
-        }
+    public Timestamp getTime() {
+        return time;
     }
-
-    public Timestamp getTime() { return time; }
 
     @Override
     public boolean equals(Object o) {
