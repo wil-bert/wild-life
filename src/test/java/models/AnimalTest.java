@@ -26,7 +26,7 @@ public class AnimalTest {
     @Test
     public void animal_instantiateWithCorrectType_String() {
         Animal testAnimal = setUpAnimal();
-        assertEquals("animal", testAnimal.getType());
+        assertEquals("animals", testAnimal.getType());
     }
 
     @Test
