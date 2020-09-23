@@ -20,13 +20,6 @@ public class Sightings {
         this.wildlife_id = wildlife_id;
     }
 
-    public static List<Sightings> all() {
-        String querySightings = "SELECT * FROM sightings";
-        try (Connection con = DB.sql2o.open()) {
-            return con.createQuery(querySightings)
-                    .executeAndFetch(Sightings.class);
-        }
-    }
 
     public int getId() {
         return id;
@@ -53,6 +46,14 @@ public class Sightings {
                     .addParameter("wildlife_id", this.wildlife_id)
                     .executeUpdate()
                     .getKey();
+        }
+    }
+
+    public static List<Sightings> all() {
+        String querySightings = "SELECT * FROM sightings";
+        try (Connection con = DB.sql2o.open()) {
+            return con.createQuery(querySightings)
+                    .executeAndFetch(Sightings.class);
         }
     }
 

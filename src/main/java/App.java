@@ -13,7 +13,7 @@ import static spark.Spark.*;
 public class App {
     public static void main(String[] args) {
         ProcessBuilder process = new ProcessBuilder();
-        Integer port;
+        int port;
 
         if (process.environment().get("PORT") != null) {
             port = Integer.parseInt(process.environment().get("PORT"));
@@ -53,11 +53,11 @@ public class App {
             }
             Sightings sightings = new Sightings(location, ranger, animalId);
             sightings.save();
-            response.redirect("/all-animals");
+            response.redirect("/animals");
             return null;
         }, new HandlebarsTemplateEngine());
 
-        get("all-animals", (request, response) -> {
+        get("/animals", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Animal> animals = Animal.all();
             List<Endangered> endangered = Endangered.all();
@@ -65,7 +65,7 @@ public class App {
             model.put("sightings", sightings);
             model.put("animals", animals);
             model.put("endangered", endangered);
-            return new ModelAndView(model, "all-animals.hbs");
+            return new ModelAndView(model, "animals.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/sightings", (request, response) -> {
