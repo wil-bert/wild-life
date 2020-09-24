@@ -1,0 +1,40 @@
+/*section{
+background-image: url(/images/moose.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+height: 100vh;
+}*/
+.nav-link{
+color: white;
+background-color:grey;
+}
+.track{
+background-color: grey;
+}
+
+.index{
+background-image: url(/images/moose.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+height: 100vh;
+}
+
+.animal{
+background-image: url(/images/elephant.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+height: 100vh;
+}
+
+.sightings{
+background-image: url(/images/ranger.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+height: 100vh;
+}
+
+@media only screen and (max-width: 500px){
+    .tracker-form{
+        width: 90%;
+    }
+}

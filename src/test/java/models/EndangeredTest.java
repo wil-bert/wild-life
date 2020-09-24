@@ -20,7 +20,7 @@ public class EndangeredTest {
     @Test
     public void animal_instantiateWithName_String() {
         Endangered testAnimal = setUpEndangered();
-        assertEquals(" ", testAnimal.getName());
+        assertEquals("lion", testAnimal.getName());
     }
 
     @Test
