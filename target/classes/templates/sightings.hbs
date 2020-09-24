@@ -1,4 +1,5 @@
 {{#partial "content"}}
+    <div class="sightings">
     <ul class="nav justify-content-end pt-4">
         <li class="nav-item">
             <a class="nav-link active" href="/">HOME</a>
@@ -7,7 +8,7 @@
             <a class="nav-link" href="/wildlife/new">TRACK ANIMAL</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/all-animals">ALL ANIMALS</a>
+            <a class="nav-link" href="/animals">ALL ANIMALS</a>
         </li>
         <li class="nav-item pr-4">
             <a class="nav-link" href="/sightings">ALL SIGHTINGS</a>
@@ -37,8 +38,9 @@
                 </tbody>
             </table>
         {{else}}
-            <h2>No sightings so far</h2>
+            <h2 class="text-center">No sightings so far</h2>
         {{/if}}
+    </div>
     </div>
 {{/partial}}
 {{>layout.hbs}}
