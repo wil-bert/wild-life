@@ -1,5 +1,7 @@
 package models;
 
+
+
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -18,7 +20,7 @@ public class EndangeredTest {
     @Test
     public void animal_instantiateWithName_String() {
         Endangered testAnimal = setUpEndangered();
-        assertEquals("lion", testAnimal.getName());
+        assertEquals(" ", testAnimal.getName());
     }
 
     @Test
