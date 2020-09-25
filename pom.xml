@@ -83,7 +83,7 @@
                     <!-- Change this to YOUR application name! -->
                     <appName>wildlife-tracker11</appName>
                     <processTypes>
-                        <web>java -jar target/wildlife-tracker11-1.0-jar-with-dependencies.jar</web>
+                        <web>java -jar target/my-app-1.0-jar-with-dependencies.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>
