@@ -11,18 +11,28 @@ import java.util.Map;
 import static spark.Spark.*;
 
 public class App {
-    public static void main(String[] args) {
-        ProcessBuilder process = new ProcessBuilder();
-        int port;
-
-        if (process.environment().get("PORT") != null) {
-            port = Integer.parseInt(process.environment().get("PORT"));
-        } else {
-            port = 4567;
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
         }
-        port(port);
-
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
+    public static void main(String[] args) { //type “psvm + tab” to autocreate this
+        port(getHerokuAssignedPort());
         staticFileLocation("/public");
+//    public static void main(String[] args) {
+//        ProcessBuilder process = new ProcessBuilder();
+//        int port;
+//
+//        if (process.environment().get("PORT") != null) {
+//            port = Integer.parseInt(process.environment().get("PORT"));
+//        } else {
+//            port = 4567;
+//        }
+//        port(port);
+//
+//        staticFileLocation("/public");
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();

@@ -16,7 +16,7 @@ Ian Wilbert
 * Sql
 
 ## Live link
-[ https://wildlife-tracker11.herokuapp.com/]
+[ https://wildlifefinder.herokuapp.com/]
 
 ## Setup
 * Clone the repo git clone https://github.com/wil-bert/Wild-life.git
